@@ -8,4 +8,4 @@ def create_app():
     app.register_blueprint(pages.bp)
     return app
 
-create_app()
+app = create_app()
