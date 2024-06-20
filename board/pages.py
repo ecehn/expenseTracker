@@ -8,11 +8,11 @@ def dashboard():
 
 @bp.route("/create")
 def createEvent():
-    return render_template("pages/createEvent.html")
+    return render_template("events/createEvent.html")
 
 @bp.route("/view")
 def viewAndEdit():
-    return render_template("pages/viewEditEvent.html")
+    return render_template("events/viewEditEvent.html")
 
 @bp.route("/account")
 def userAccount():
