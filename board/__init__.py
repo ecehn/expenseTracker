@@ -1,12 +1,18 @@
 from flask import Flask
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
 from board import pages, events
 
 def create_app():
+    load_dotenv()
+
     app = Flask(__name__)
 
-    mongo_uri = "mongodb+srv://echen05:pAX1KRmj2rZIT3nu@cluster0.pebmlvv.mongodb.net/?appName=Cluster0"
+    app.secret_key = os.getenv('SECRET_KEY', 'supersecretkey')
+
+    mongo_uri = os.getenv("MONGO_URI")
     client = MongoClient(mongo_uri)
     db = client['ExpenseTrackerDB']
     
