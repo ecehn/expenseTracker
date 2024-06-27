@@ -1,7 +1,7 @@
 from flask import Flask
 from pymongo import MongoClient
 
-from board import pages, events, database
+from board import pages, events
 
 def create_app():
     app = Flask(__name__)
