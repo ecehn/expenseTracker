@@ -11,7 +11,7 @@ def createEvent():
     return render_template("events/createEvent.html")
 
 @bp.route("/view")
-def viewAndEdit():
+def viewEvent():
     return render_template("events/viewEditEvent.html")
 
 @bp.route("/account")
