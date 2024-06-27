@@ -8,8 +8,6 @@ from flask import (
     flash
 )
 
-from board.database import get_db
-
 bp = Blueprint("posts", __name__)
 
 @bp.route('/create', methods=['GET', 'POST'])
