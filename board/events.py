@@ -4,27 +4,29 @@ from flask import (
     render_template,
     request,
     url_for,
+    current_app,
+    flash
 )
 
 from board.database import get_db
 
 bp = Blueprint("posts", __name__)
 
-@bp.route("/create", methods=("GET", "POST"))
-def create():
-    if request.method == "POST":
-        message = request.form["message"]
-
-        if message:
-            db = get_db()
-            db.execute(
-                "INSERT INTO post (message) VALUES (?)",
-                (message),
-            )
-            db.commit()
-            return redirect(url_for("posts.posts"))
-
-    return render_template("events/createEvent.html")
+@bp.route('/create', methods=['GET', 'POST'])
+def create_event():
+    if request.method == 'POST':
+        event_name = request.form.get('message')
+        
+        if event_name:
+            db = current_app.config['MONGO_DB']
+            collection = db['events']  # Replace with your actual collection name
+            collection.insert_one({'name': event_name})
+            flash('Event created successfully!')
+            return redirect(url_for('events.create_event'))
+        else:
+            flash('Event name is required.')
+    
+    return render_template('create_event.html')
 
 @bp.route("/posts")
 def posts():

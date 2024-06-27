@@ -12,7 +12,16 @@
     {% block header %}{% endblock header %}
   </header>
   <main>
-    {% block content %}<p>No messages.</p>{% endblock content %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock content %}
   </main>
 </section>
 </body>
