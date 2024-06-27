@@ -17,7 +17,7 @@ def create_event():
         
         if event_name:
             db = current_app.config['MONGO_DB']
-            collection = db['events']  # Replace with your actual collection name
+            collection = db['test']  # Replace with your actual collection name
             collection.insert_one({'name': event_name})
             flash('Event created successfully!')
             #return redirect(url_for('events.create_event'))
@@ -26,10 +26,10 @@ def create_event():
     
     return render_template('events/createEvent.html')
 
-@bp.route('/list')
-def list_events():
+@bp.route('/view')
+def view_events():
     db = current_app.config['MONGO_DB']
-    collection = db['events']  # Replace with your actual collection name
+    collection = db['test']  # Replace with your actual collection name
     events = list(collection.find())
     for event in events:
         event['_id'] = str(event['_id'])  # Convert ObjectId to string for JSON serialization
