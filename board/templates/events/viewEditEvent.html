@@ -8,10 +8,11 @@
   <h3>Events:</h3>
   <ul>
     {% for event in events %}
-      <li>{{ event['name'] }}</li>
+      <li>{{ event }}</li>
     {% else %}
       <li>No events found.</li>
     {% endfor %}
   </ul>
-  <p>{{ events }}</p>
+  <!-- Debugging message to display the raw events list -->
+  <p>Events list: {{ events }}</p>
 {% endblock content %}

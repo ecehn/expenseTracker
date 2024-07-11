@@ -6,6 +6,7 @@ import os
 from board import pages, events
 
 def create_app():
+    
     load_dotenv()
 
     app = Flask(__name__)
@@ -25,5 +26,6 @@ def create_app():
     return app
 
 app = create_app()
+
 
 

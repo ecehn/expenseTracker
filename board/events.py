@@ -26,14 +26,19 @@ def create_event():
     
     return render_template('events/createEvent.html')
 
-@bp.route('/viewdd', methods=['GET'])
+@bp.route('/view', methods=['GET'])
 def view_events():
-    db = current_app.config['MONGO_DB']
-    collection = db['test']
-    events = list(collection.find())
-    for event in events:
-        event['_id'] = str(event['_id'])
-    return render_template('events/viewEditEvent.html', events=events)
+    try:
+        print("Accessing list_events route...")
+        db = current_app.config['MONGO_DB']
+        collection = db['test']
+        events = list(collection.find())
+        for event in events:
+            event['_id'] = str(event['_id'])
+        events_json = jsonify(event)
+        return render_template('events/viewEditEvent.html', events_json=events_json)
+    except ValueError:
+        print(ValueError)
 
 @bp.route('/api/events', methods=['GET'])
 def api_list_events():
@@ -42,5 +47,4 @@ def api_list_events():
     events = list(collection.find())
     for event in events:
         event['_id'] = str(event['_id'])
-    print(events)  # Debugging print statement
     return jsonify(events)
