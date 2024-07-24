@@ -1,6 +1,7 @@
 from flask import Flask
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from flask_cors import CORS
 import os
 
 from board import pages, events
@@ -10,6 +11,8 @@ def create_app():
     load_dotenv()
 
     app = Flask(__name__)
+
+    CORS(app)
 
     app.secret_key = os.getenv('SECRET_KEY', 'supersecretkey')
 
