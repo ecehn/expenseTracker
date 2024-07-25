@@ -1,4 +1,4 @@
-<div *ngFor="let event of events">
+<div *ngFor="let event of events" | async>
     <h3>{{ event.id }}</h3>
     <p>{{ event.name }}</p>
   </div>
