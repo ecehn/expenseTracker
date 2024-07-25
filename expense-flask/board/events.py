@@ -47,4 +47,6 @@ def api_list_events():
     events = list(collection.find())
     for event in events:
         event['_id'] = str(event['_id'])
-    return jsonify(events)
+    response = jsonify(events)
+    response.headers['Cache-Control'] = 'no-store'
+    return response
