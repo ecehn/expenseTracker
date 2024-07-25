@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://jsonplaceholder.typicode.com/posts/1/comments'
+    apiUrl: 'https://expense-tracker-flask-backend.vercel.app/api/events'
   };
   
