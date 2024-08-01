@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { EventsService } from '../events.service';
+import { EMPTY, Observable } from 'rxjs';
+import { Event } from '../models/event.model'; 
 
 @Component({
   selector: 'app-events',
@@ -12,12 +14,12 @@ import { EventsService } from '../events.service';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  events: any[] = [];
+  events$: Observable<Event[]> = EMPTY;
 
   constructor(private eventsService: EventsService) {}
 
   ngOnInit(): void {
-    // no separate function needed for async pipe call
+      this.events$ = this.eventsService.getEvents();
   }
 
   // ngOnInit(): void {
