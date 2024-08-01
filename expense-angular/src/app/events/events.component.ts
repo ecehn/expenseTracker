@@ -17,8 +17,12 @@ export class EventsComponent implements OnInit {
   constructor(private eventsService: EventsService) {}
 
   ngOnInit(): void {
-    this.eventsService.getEvents().subscribe(data => {
-      this.events = data;
-    });
+    // no separate function needed for async pipe call
   }
+
+  // ngOnInit(): void {
+  //   this.eventsService.getEvents().subscribe(data => {
+  //     this.events = data;
+  //   });
+  // }
 }
