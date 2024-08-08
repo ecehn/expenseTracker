@@ -14,7 +14,7 @@ import { Event } from '../models/event.model';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  events$: Observable<Event[]> = EMPTY;
+  events$!: Observable<Event[]>;
 
   constructor(private eventsService: EventsService) {}
 
