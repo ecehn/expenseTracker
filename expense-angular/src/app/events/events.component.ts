@@ -5,9 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EventsService } from '../events.service';
 import { EMPTY, Observable } from 'rxjs';
 import { Event } from '../models/event.model';
-import { TransferState, makeStateKey } from '@angular/platform-browser';
 
-const EVENT_KEY = makeStateKey<Event[]>('events');
 
 @Component({
   selector: 'app-events',
@@ -21,25 +19,12 @@ export class EventsComponent implements OnInit {
 
   constructor(
     private eventsService: EventsService,
-    private transferState: TransferState
   ) {}
 
   ngOnInit(): void {
-    const eventsFromState = this.transferState.get(EVENT_KEY, null);
-
-    if (eventsFromState) {
-      this.events$ = this.eventsService.getEvents().pipe(
-        tap(events => this.transferState.set(EVENT_KEY, events))
-      );
-    } else {
+      console.log('ngOnInit called');
       this.events$ = this.eventsService.getEvents();
-    }
   }
-
-  // ngOnInit(): void {
-  //     console.log('ngOnInit called');
-  //     this.events$ = this.eventsService.getEvents();
-  // }
 
   // ngOnInit(): void {
   //   this.eventsService.getEvents().subscribe(data => {
