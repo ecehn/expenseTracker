@@ -17,9 +17,7 @@ import { Event } from '../models/event.model';
 export class EventsComponent implements OnInit {
   events$!: Observable<Event[]>;
 
-  constructor(
-    private eventsService: EventsService,
-  ) {}
+  constructor(private eventsService: EventsService) {}
 
   ngOnInit(): void {
       console.log('ngOnInit called');
