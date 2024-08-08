@@ -19,6 +19,7 @@ export class EventsComponent implements OnInit {
   constructor(private eventsService: EventsService) {}
 
   ngOnInit(): void {
+      console.log('ngOnInit called');
       this.events$ = this.eventsService.getEvents();
   }
 
