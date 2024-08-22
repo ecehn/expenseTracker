@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+    <div class="form-group">
+      <label for="name">Message</label>
+      <textarea
+        name="name"
+        id="name"
+        class="form-control"
+        [(ngModel)]="event.name"
+        required
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Post Message" class="submit-btn" [disabled]="eventForm.invalid">
+    </div>
+  </form>

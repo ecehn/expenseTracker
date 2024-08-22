@@ -14,6 +14,11 @@ export class EventsService {
   constructor(private http: HttpClient) {}
 
   getEvents(): Observable<Event[]> {
-    return this.http.get<Event[]>(this.apiUrl);
+    const getUrl = `${this.apiUrl}/api/events`;
+    return this.http.get<Event[]>(getUrl);
   }
+
+  addEvent(newEvent: Event): Observable<Event> {
+    const postUrl = `${this.apiUrl}/create`; 
+    return this.http.post<Event>(postUrl, newEvent, {headers: { 'Content-Type': 'application/json' }})}
 }

@@ -14,7 +14,8 @@ bp = Blueprint("posts", __name__)
 @bp.route('/create', methods=['GET', 'POST'])
 def create_event():
     if request.method == 'POST':
-        event_name = request.form.get('message')
+        data = request.get_json()
+        event_name = data.get('name')
         
         if event_name:
             db = current_app.config['MONGO_DB']
