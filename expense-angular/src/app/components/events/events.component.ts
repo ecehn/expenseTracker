@@ -2,9 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { EventsService } from '../events.service';
+import { EventsService } from '../../events.service';
 import { EMPTY, Observable } from 'rxjs';
-import { Event } from '../models/event.model';
+import { Event } from '../../models/event.model';
 
 
 @Component({

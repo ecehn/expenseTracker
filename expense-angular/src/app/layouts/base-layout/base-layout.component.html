@@ -1,0 +1,38 @@
+<div class="container">
+    <!-- Side Navbar -->
+    <nav class="side-navbar">
+      <div class="logo">
+        <!-- Add your logo here -->
+        <h2>Expense</h2>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Dashboard</a></li>
+        <li><a routerLink="/view" routerLinkActive="active" ariaCurrentWhenActive="page">View</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Settings</a></li>
+        <!-- Add more links as needed -->
+      </ul>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Navbar -->
+      <nav class="top-navbar">
+        <div class="search-bar">
+          <!-- Search bar or other content -->
+          <input type="text" placeholder="Search...">
+        </div>
+        <div class="user-profile">
+          <!-- User Profile or other items -->
+          <span>John Doe</span>
+        </div>
+      </nav>
+  
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Add router-outlet or component specific content here -->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  

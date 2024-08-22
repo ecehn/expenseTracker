@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
+import { EventsComponent } from '../../components/events/events.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { EventsComponent } from './components/events/events.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-base-layout',
   standalone: true,
   imports: [EventsComponent, RouterOutlet, RouterLink, RouterLinkActive],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './base-layout.component.html',
+  styleUrl: './base-layout.component.css'
 })
+export class BaseLayoutComponent {
 
-export class AppComponent {
-  title = 'expense-angular';
 }
