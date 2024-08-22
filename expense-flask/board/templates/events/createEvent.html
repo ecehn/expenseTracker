@@ -14,32 +14,4 @@
         <input type="submit" value="Post Message" class="submit-btn">
     </div>
   </form>
-
-  <script>
-    // Safely render initial data as a JSON string
-    const initialData = {{ request.form.get('name') | tojson | safe }};
-    console.log('Initial Data:', initialData);  // Use initialData in your JavaScript logic
-
-    document.getElementById('eventForm').addEventListener('submit', function(event) {
-      event.preventDefault();  // Prevent default form submission
-
-      const name = document.getElementById('name').value;
-
-      fetch('/api/events', {  // Update with your actual endpoint
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: name })
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        // Optionally handle the response or update the UI
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-    });
-  </script>
 {% endblock content %}
