@@ -25,7 +25,7 @@ def create_event():
         else:
             flash('Event name is required.')
             
-        return event_name
+        return data
     
     return render_template('events/createEvent.html')
 
