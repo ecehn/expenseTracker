@@ -13,3 +13,11 @@
       <input type="submit" value="Post Message" class="submit-btn" [disabled]="eventForm.invalid">
     </div>
   </form>
+
+<div *ngIf="eventForm.submitted && eventForm.valid" class="alert alert-success" role="alert">
+  Success
+</div>
+
+<div *ngIf="eventForm.submitted && !eventForm.valid" class="alert alert-danger" role="alert">
+  Failed
+</div>

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Event } from '../../models/event.model';
 import { EventsService } from '../../events.service';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-event',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './create-event.component.html',
   styleUrl: './create-event.component.css'
 })
@@ -22,7 +23,6 @@ export class CreateEventComponent {
     this.eventsService.addEvent(this.event).subscribe({
       next: (response) => {
         console.log('Event added successfully:', response);
-        // Optionally, reset the form or navigate away
       },
       error: (err) => {
         console.error('Error adding event:', err);
