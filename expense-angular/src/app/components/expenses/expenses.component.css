@@ -1,0 +1,38 @@
+.expenses-container {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .expenses-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+  }
+  
+  .table-header th {
+    background-color: #a0ce4e; /* green background for header */
+    color: white;
+    padding: 15px;
+    font-size: 1.5rem;
+    text-align: left;
+  }
+  
+  .column-names th {
+    background-color: #d9f2b4; /* lighter green for column names */
+    color: black;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  select {
+    padding: 5px;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
