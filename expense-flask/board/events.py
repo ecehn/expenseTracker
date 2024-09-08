@@ -1,15 +1,13 @@
 from flask import (
     Blueprint,
-    redirect,
     render_template,
     request,
-    url_for,
     current_app,
     flash, 
     jsonify
 )
 
-bp = Blueprint("posts", __name__)
+bp = Blueprint("events", __name__)
 
 @bp.route('/create', methods=['GET', 'POST'])
 def create_event():

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Event } from '../../models/event.model';
-import { EventsService } from '../../events.service';
+import { EventsService } from '../../services/events-service/events.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 

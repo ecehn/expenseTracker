@@ -1,3 +1,7 @@
-export interface Expenses {
-    name: string;   
-  }
+export interface Expense {
+  item: string;       
+  notes: string;     
+  date: Date;        
+  amount: number;     
+  paidBy: string[];   
+}

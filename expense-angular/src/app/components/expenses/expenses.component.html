@@ -1,47 +1,24 @@
 <div class="expenses-container">
-    <table class="expenses-table">
-      <thead>
-        <tr class="table-header">
-          <th colspan="6" class="header-title">Expenses</th>
-        </tr>
-        <tr class="column-names">
-          <th>Item</th>
-          <th>Notes</th>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>Paid By</th>
-          <th>Per Person</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Item 1</td>
-          <td>Notes here</td>
-          <td>Date</td>
-          <td>Amount</td>
-          <td>
-            <select>
-              <option>Person 1</option>
-              <option>Person 2</option>
-            </select>
-          </td>
-          <td>Per Person</td>
-        </tr>
-        <tr>
-          <td>Item 2</td>
-          <td>Notes here</td>
-          <td>Date</td>
-          <td>Amount</td>
-          <td>
-            <select>
-              <option>Person 1</option>
-              <option>Person 2</option>
-            </select>
-          </td>
-          <td>Per Person</td>
-        </tr>
-        <!-- Repeat rows as necessary -->
-      </tbody>
-    </table>
-  </div>
-  
+  <h2>Expenses List</h2>
+
+  <table class="expenses-table">
+    <thead>
+      <tr class="table-header">
+        <th>Item</th>
+        <th>Notes</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Paid By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let expense of expenses$ | async">
+        <td>{{ expense.item }}</td>
+        <td>{{ expense.notes }}</td>
+        <td>{{ expense.date | date }}</td> <!-- Use Angular's date pipe to format date -->
+        <td>{{ expense.amount | currency }}</td> <!-- Use Angular's currency pipe to format amount -->
+        <td><select>{{ expense.paidBy }}</select></td><!-- Display paidBy array as comma-separated string -->
+      </tr>
+    </tbody>
+  </table>
+</div>

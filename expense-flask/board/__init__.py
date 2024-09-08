@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 
-from board import pages, events
+from board import pages, events, expenses
 
 def create_app():
     
@@ -13,7 +13,6 @@ def create_app():
     app = Flask(__name__)
     
     CORS(app)
-    #CORS(app, resources={r"/*": {"origins": "*"}})  # Allow all origins
 
     app.secret_key = os.getenv('SECRET_KEY', 'supersecretkey')
 
@@ -27,6 +26,7 @@ def create_app():
 
     app.register_blueprint(pages.bp)
     app.register_blueprint(events.bp)
+    app.register_blueprint(expenses.bp)
     return app
 
 app = create_app()
