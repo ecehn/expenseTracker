@@ -10,7 +10,7 @@ from flask import (
 bp = Blueprint("expenses", __name__)
 
 @bp.route('/createExpenses', methods=['GET', 'POST'])
-def create_event():
+def create_expense():
     if request.method == 'POST':
         data = request.get_json()
         
@@ -42,7 +42,7 @@ def create_event():
 
 
 @bp.route('/api/expenses', methods=['GET'])
-def api_list_events():
+def api_list_expense():
     db = current_app.config['MONGO_DB']
     collection = db['expenses']
     events = list(collection.find())

@@ -17,3 +17,7 @@ def viewEvent():
 @bp.route("/account")
 def userAccount():
     return render_template("pages/userAccount.html")
+
+@bp.route("/createExpense")
+def createExpense():
+    return render_template("events/createEvent.html")

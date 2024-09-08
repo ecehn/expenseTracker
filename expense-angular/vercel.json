@@ -1,8 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/events",
       "destination": "https://expense-tracker-flask-backend.vercel.app/api/events"
+    },
+    {
+      "source": "/api/expenses",
+      "destination": "https://expense-tracker-flask-backend.vercel.app/api/expenses"
     },
     {
       "source": "/(.*)",
