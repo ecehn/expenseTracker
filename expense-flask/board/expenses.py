@@ -41,7 +41,7 @@ def create_expense():
     return render_template('expenses/createExpense.html')
 
 
-@bp.route('/api/expenses', methods=['GET'])
+@bp.route('/viewexpenses', methods=['GET'])
 def api_list_expense():
     db = current_app.config['MONGO_DB']
     collection = db['expenses']

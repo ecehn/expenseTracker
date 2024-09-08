@@ -18,7 +18,7 @@ export class ExpensesService {
     return this.http.post<Expense>(postUrl, newExpense, {headers: { 'Content-Type': 'application/json' }})}
 
   getExpenses(): Observable<Expense[]> {
-    const getUrl = `${this.apiUrl}/api/expenses`;
+    const getUrl = `${this.apiUrl}/viewexpenses`;
     return this.http.get<Expense[]>(getUrl);
   }
 
